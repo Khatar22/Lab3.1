@@ -1,0 +1,94 @@
+:root {
+  --cell-size: 48px;
+  --grid-gap: 4px;
+  --land-border: #4e3b2f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  background: #f5f3ef;
+  color: #2b2b2b;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.tools .tool {
+  margin-right: 8px;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  cursor: pointer;
+}
+
+.tool.active {
+  background-color: #cde;
+  border-color: #59a;
+}
+
+.tools .tool:focus {
+  outline: 2px solid #5a9;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, var(--cell-size));
+  grid-auto-rows: var(--cell-size);
+  gap: var(--grid-gap);
+  padding: 12px;
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 1px solid var(--land-border);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* цвет земли в зависимости от влажности */
+.cell.land {
+  transition: background-color 0.25s ease;
+}
+
+.cell.water {
+  background: #4db3ff url("../assets/water.png") center/60% no-repeat;
+  border-color: #2c6d99;
+}
+
+/* картинка растения поверх ячейки */
+.plant {
+  width: 80%;
+  height: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+}
+
+.plant.dead {
+  filter: grayscale(100%) brightness(0.6);
+  opacity: 0.5;
+}
+
+.footer {
+  text-align: center;
+  padding: 10px;
+  color: #666;
+  border-top: 1px solid #ddd;
+}

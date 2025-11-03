@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>Симулятор фермы — ООП JS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="./styles/styles.css" rel="stylesheet" />
+</head>
+<body>
+<header class="toolbar">
+  <div class="tools">
+    <button data-tool="shovel" class="tool">Лопата</button>
+    <button data-tool="bucket-fill" class="tool">Ведро: вылить</button>
+    <button data-tool="bucket-take" class="tool">Ведро: забрать</button>
+    <select id="seed-select" class="tool">
+      <option value="none">— Семена —</option>
+      <option value="bog">Болотник</option>
+      <option value="potato">Картошка</option>
+      <option value="cactus">Кактус</option>
+    </select>
+    <button data-tool="seed" class="tool">Посадить</button>
+  </div>
+  <div class="status">
+    <span id="status-text">Инструмент: лопата</span>
+  </div>
+</header>
+
+<main>
+  <div id="grid" class="grid"></div>
+</main>
+
+<footer class="footer">
+  <small>ООП: классы, наследование, модули JS. Влажность рассчитывается от ближайших водных блоков с учетом расстояния.</small>
+</footer>
+
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
